@@ -1,0 +1,15 @@
+.test-enter-active, .test-leave-active {
+    transition: all .65s
+}
+.test-enter, .test-leave-active {
+    opacity: 0;
+    transform: translateY(-400px)
+}
+.layout-enter-active, .layout-leave-active,
+.page-enter-active, .page-leave-active {
+    transition: all .45s
+}
+.layout-enter, .layout-leave-active,
+.page-enter, .page-leave-active {
+    opacity: 0;
+}
