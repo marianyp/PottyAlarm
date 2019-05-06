@@ -13,6 +13,9 @@ module.exports = {
   plugins: [
     require('tailwindcss')(tailwindConfig),
     require('autoprefixer'),
+    require('cssnano')({
+      preset: 'default'
+    }),
     purgecss({
       content: [
         path.join(__dirname, './pages/**/*.vue'),
