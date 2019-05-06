@@ -39,9 +39,9 @@ export default {
       lyrics: ''
     }
   },
-  async asyncData({ params }) {
+  async asyncData({ params, app }) {
     // On page load, fetch data
-    const data = await axios.get(`/api/lyrics/${params.id}`)
+    const data = await app.$axios.get(`/api/lyrics/${params.id}`)
     return { lyrics: data.data.lyrics, title: data.data.full_title }
   },
   mounted() {
