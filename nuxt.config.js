@@ -1,14 +1,10 @@
-import path from 'path'
-import PurgecssPlugin from 'purgecss-webpack-plugin'
-import glob from 'glob-all'
 import pkg from './package'
 
-class TailwindExtractor {
-  static extract(content) {
-    // eslint-disable-next-line no-useless-escape
-    return content.match(/[A-z0-9-:/]+/g) || []
-  }
-}
+// class TailwindExtractor {
+//   static extract(content) {
+//     return content.match(/[A-Za-z0-9-_:\/]+/g) || [] // eslint-disable-line no-useless-escape
+//   }
+// }
 
 export default {
   mode: 'universal',
@@ -67,32 +63,18 @@ export default {
    ** Build configuration
    */
   build: {
-    extractCSS: true,
-    postcss: {
-      plugins: {
-        tailwindcss: path.resolve('./tailwind.js')
-      },
-      preset: { autoprefixer: { grid: true } }
-    },
-
+    /*
+    ** You can extend webpack config here
+    */
     extend(config, ctx) {
-      if (!ctx.isDev) {
-        config.plugins.push(
-          new PurgecssPlugin({
-            paths: glob.sync([
-              path.join(__dirname, 'pages/**/*.vue'),
-              path.join(__dirname, 'layouts/**/*.vue'),
-              path.join(__dirname, 'components/**/*.vue')
-            ]),
-            extractors: [
-              {
-                extractor: TailwindExtractor,
-                extensions: ['js', 'vue', 'html']
-              }
-            ],
-            whitelist: ['html', 'body']
-          })
-        )
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
       }
     }
   }
