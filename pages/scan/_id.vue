@@ -22,6 +22,7 @@
 <script>
 import fuhk from 'fuhk'
 import _ from 'lodash'
+import axios from 'axios'
 
 import CensoredText from '~/components/CensoredText'
 import EditSwears from '~/components/EditSwears'
@@ -39,8 +40,9 @@ export default {
     }
   },
   async asyncData({ params, app }) {
+    const _axios = app.$axios || axios
     // On page load, fetch data
-    const data = await app.$axios.get(`/api/lyrics/${params.id}`)
+    const data = await _axios.get(`/api/lyrics/${params.id}`)
     return { lyrics: data.data.lyrics, title: data.data.full_title }
   },
   mounted() {
