@@ -28,7 +28,7 @@ module.exports = {
           extensions: ['vue', 'js', 'html']
         }
       ],
-      whitelist: ['html', 'body', 'nuxt-progress']
+      whitelist: ['html', 'body', 'nuxt-progress', 'ripple-core']
     })
   ]
 }
