@@ -4,6 +4,7 @@ import pkg from './package'
 
 const tailwindConfig = path.join(__dirname, 'tailwind.js')
 
+// For PurgeCSS
 class TailwindExtractor {
   static extract(content) {
     return content.match(/[A-Za-z0-9-_:\/]+/g) || [] // eslint-disable-line no-useless-escape
@@ -61,6 +62,9 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   /*
