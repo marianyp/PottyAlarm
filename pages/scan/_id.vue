@@ -15,14 +15,14 @@
         <CensoredText :text="word" /><span class="text-custom-yellow text-4xl">*{{ count }}</span>
       </div>
     </div>
-    <EditSwears class="lg:flex hdden" @customSwearsChanged="swearScan()" />
+    <EditSwears @customSwearsChanged="swearScan()" />
   </div>
 </template>
 
 <script>
 import fuhk from 'fuhk'
 import _ from 'lodash'
-import axios from 'axios'
+// import axios from 'axios'
 
 import CensoredText from '~/components/CensoredText'
 import EditSwears from '~/components/EditSwears'

@@ -122,11 +122,13 @@ export default {
   bottom: 16px;
   right: 16px;
   transition: all 0.45s;
+  opacity: 0.4;
+  transform: scale(0.975);
 }
 
 .edit:hover {
-  transform: scale(0.975);
-  opacity: 0.4;
+  transform: scale(1);
+  opacity: 1;
 }
 
 .blur {
