@@ -41,7 +41,7 @@ export default {
   },
   async asyncData({ params }) {
     // On page load, fetch data
-    const data = await axios.get(`http://localhost:3000/api/lyrics/${params.id}`)
+    const data = await axios.get(`/api/lyrics/${params.id}`)
     return { lyrics: data.data.lyrics, title: data.data.full_title }
   },
   mounted() {
