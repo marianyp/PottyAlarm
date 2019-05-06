@@ -2,11 +2,11 @@
   <div class="w-full min-h-screen text-white font-heebo">
     <transition appear name="scale" @after-enter="splashDone">
       <div v-if="splash && !$store.state.viewedSplash" class="splash">
-        <img src="~/assets/logo.png" alt="potty 🚨 alarm" class="sm:h-10 h-6">
+        <img src="~/assets/logo-img.png" alt="potty 🚨 alarm" class="sm:h-10 h-6">
       </div>
     </transition>
     <header class="p-4">
-      <img src="~/assets/logo.png" alt="potty 🚨 alarm" class="sm:h-10 h-6">
+      <img src="~/assets/logo-img.png" alt="potty 🚨 alarm" class="sm:h-10 h-6">
     </header>
     <div
       class="full-minus-nav-desktop flex flex-col items-center justify-center"

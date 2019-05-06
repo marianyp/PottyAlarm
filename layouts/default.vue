@@ -2,7 +2,7 @@
   <div class="w-full min-h-screen text-white font-heebo">
     <header class="p-4">
       <nuxt-link to="/">
-        <img src="~/assets/logo.png" alt="potty 🚨 alarm" class="sm:h-10 h-6">
+        <img src="~/assets/logo-img.png" alt="potty 🚨 alarm" class="sm:h-10 h-6">
       </nuxt-link>
     </header>
     <div class="flex w-full justify-center py-4">
