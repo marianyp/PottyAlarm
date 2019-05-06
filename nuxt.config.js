@@ -71,8 +71,9 @@ export default {
     /*
     ** Run ESLint on save
     */
-    extend(config, { isDev, isClient }) {
-      if (isDev && isClient) {
+    extend(config, ctx) {
+    // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -80,7 +81,8 @@ export default {
           exclude: /(node_modules)/
         })
       }
-      if (!isDev) {
+
+      if (!ctx.isDev) {
         // Remove unused CSS using purgecss. See https://github.com/FullHuman/purgecss
         // for more information about purgecss.
         config.plugins.push(
