@@ -68,29 +68,21 @@ export default {
    */
   build: {
     extractCSS: true,
-    /*
-    ** Run ESLint on save
-    */
-    extend(config, ctx) {
-    // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
+    postcss: {
+      plugins: {
+        tailwindcss: path.resolve('./tailwind.js')
+      },
+      preset: { autoprefixer: { grid: true } }
+    },
 
+    extend(config, ctx) {
       if (!ctx.isDev) {
-        // Remove unused CSS using purgecss. See https://github.com/FullHuman/purgecss
-        // for more information about purgecss.
         config.plugins.push(
           new PurgecssPlugin({
             paths: glob.sync([
-              path.join(__dirname, './pages/**/*.vue'),
-              path.join(__dirname, './layouts/**/*.vue'),
-              path.join(__dirname, './components/**/*.vue')
+              path.join(__dirname, 'pages/**/*.vue'),
+              path.join(__dirname, 'layouts/**/*.vue'),
+              path.join(__dirname, 'components/**/*.vue')
             ]),
             extractors: [
               {
