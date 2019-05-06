@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import fuhk from 'fuhk'
 import _ from 'lodash'
 
