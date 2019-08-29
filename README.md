@@ -1,6 +1,6 @@
 # potty-alarm
 
-> Check if lyrics have bad words in them
+> Check if lyrics have bad words in them https://potty-alarm.herokuapp.com/
 
 ## Build Setup
 
